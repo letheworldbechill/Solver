@@ -1,18 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages Test</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Private Problem Solver</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Willkommen zu GitHub Pages</h1>
-        <p>Dies ist eine einfache Anwendung, um GitHub Pages zu testen.</p>
-        <button id="testButton">Klicke mich!</button>
-        <p id="output"></p>
-    </div>
-    <script src="script.js"></script>
+  <header>
+    <h1>🧩 Private Problem Solver</h1>
+    <button id="btn-new" class="primary">Neues Problem ➕</button>
+  </header>
+
+  <main>
+    <section id="list-view">
+      <h2>Meine Probleme</h2>
+      <ul id="problem-list" class="card-list"></ul>
+      <p id="empty-msg" class="muted">Noch keine Einträge.</p>
+    </section>
+
+    <!-- Wizard‑Overlay -->
+    <dialog id="wizard">
+      <form method="dialog" id="wizard-form">
+        <header>
+          <h3 id="step-title"></h3>
+          <progress id="progress" value="1" max="8"></progress>
+        </header>
+
+        <div id="step-content"></div>
+
+        <footer>
+          <button type="button" id="btn-prev">← Zurück</button>
+          <button type="button" id="btn-next" class="primary">Weiter →</button>
+          <button type="submit" id="btn-done" class="primary hide">Fertig 🎉</button>
+        </footer>
+      </form>
+    </dialog>
+  </main>
+
+  <template id="tpl-problem-card">
+    <li class="card">
+      <h4 class="card-title"></h4>
+      <small class="muted"></small>
+      <button class="secondary btn-resume">Weiter ▶️</button>
+    </li>
+  </template>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
